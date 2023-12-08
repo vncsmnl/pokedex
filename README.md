@@ -6,6 +6,10 @@ This project is a simple Pokemon Pokedex web application that fetches Pokemon da
 
 ![App Screenshot](./assets/1.png)
 
+<div align="center">
+<img src="./assets/tweet.jpg" width="256" alight-itens="center">
+</div>
+
 ## TODO
 
 - [x] Dynamically get the pokemon ID without specifying it in generatePokemonPromises
