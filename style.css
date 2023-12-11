@@ -40,7 +40,7 @@ hr {
 	border-radius: 20px;
 	position: relative;
 	box-shadow: 20px 20px 15px -22px rgba(0, 0, 0, 0.51);
-
+	cursor: pointer;
 }
 
 .card::after {

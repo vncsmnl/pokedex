@@ -10,6 +10,7 @@ const fetchPokemon = async (pokemon) => {
         }
     } catch (error) {
         console.error(error);
+        throw error;
     }
 };
 
@@ -19,13 +20,20 @@ const generatePokemonCardHTML = ({ name, id, types, abilities, stats }) => {
     const statsInfo = stats.map(stat => stat.base_stat + ' ' + stat.stat.name);
 
     return `
-        <li class="card ${elementTypes[0]}"> 
+        <li class="card ${elementTypes[0]}" data-id="${id}" data-name="${name}" onclick="handlePokemonCardClick(this, '${name}')">
             <img class="card-image" alt="${name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png"/>
             <h2 class="card-title">${id}. ${name}</h2>
             <p class="card-subtitle">Type: ${elementTypes.join(' | ')}</p>
             <p class="card-subtitle">Abilities: ${pokemonAbilities.join(', ')}</p>
             <p class="card-subtitle">Stats: ${statsInfo.join(', ')}</p>
+            
         </li>`;
+};
+
+const handlePokemonCardClick = (cardElement, name) => {
+    const pokemonName = cardElement.getAttribute('data-name');
+    const url = `https://bulbapedia.bulbagarden.net/wiki/${pokemonName}`;
+    window.open(url, '_blank');
 };
 
 const insertPokemonsIntoPage = pokemons => {
@@ -33,7 +41,8 @@ const insertPokemonsIntoPage = pokemons => {
     ul.innerHTML = pokemons.join('');
 };
 
-const generatePokemonPromises = () => Array(1017).fill().map((_, index) => fetchPokemon(index + 1));
+const totalPokemonCount = 1017;
+const generatePokemonPromises = () => Array(totalPokemonCount).fill().map((_, index) => fetchPokemon(index + 1));
 
 const updatePokedex = async () => {
     try {
