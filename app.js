@@ -41,7 +41,7 @@ const insertPokemonsIntoPage = pokemons => {
     ul.innerHTML = pokemons.join('');
 };
 
-const totalPokemonCount = 1017;
+const totalPokemonCount = 1025;
 const generatePokemonPromises = () => Array(totalPokemonCount).fill().map((_, index) => fetchPokemon(index + 1));
 
 const updatePokedex = async () => {
