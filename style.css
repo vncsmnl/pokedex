@@ -1,10 +1,31 @@
+:root {
+	--normal: #d8d8cb;
+	--fire: #f7bf97;
+	--water: #96afe9;
+	--electric: #ffe88d;
+	--grass: #caeebb;
+	--ice: #c8dddd;
+	--fighting: #f7a39f;
+	--poison: #daacda;
+	--ground: #e0cd98;
+	--flying: #c2b3f0;
+	--psychic: #ff9bb9;
+	--bug: #e6ebb3;
+	--rock: #c9bf97;
+	--ghost: #bb9ee7;
+	--dragon: #b99aff;
+	--dark: #b1a7a7;
+	--steel: #bebecf;
+	--fairy: #fcd1df;
+}
+
 * {
 	box-sizing: border-box;
 	font-family: rubik;
 }
 
 body {
-	background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+	background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
 	color: white;
 	margin: 0;
 }
@@ -28,7 +49,7 @@ hr {
 .pokedex {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-gap: 20px;
+	gap: 20px;
 	padding-inline-start: 0;
 }
 
@@ -41,6 +62,11 @@ hr {
 	position: relative;
 	box-shadow: 20px 20px 15px -22px rgba(0, 0, 0, 0.51);
 	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.card:hover {
+	animation: bounce 0.5s linear;
 }
 
 .card::after {
@@ -50,91 +76,15 @@ hr {
 	height: 30%;
 	border-radius: 26% 74% 67% 33% / 44% 25% 75% 56%;
 	background-color: #fff;
-	opacity: .7;
+	opacity: 0.7;
 	position: absolute;
 	top: 15%;
 	left: 25%;
 }
 
-.steel {
-	background-color: #bebecf;
-}
-
-.dark {
-	background-color: #b1a7a7;
-}
-
-.fire {
-	background-color: #f7bf97;
-}
-
-.grass {
-	background-color: #caeebb;
-}
-
-.electric {
-	background-color: #ffe88d;
-}
-
-.ice {
-	background-color: #c8dddd;
-}
-
-.water {
-	background-color: #96afe9;
-}
-
-.ground {
-	background-color: #e0cd98;
-}
-
-.rock {
-	background-color: #c9bf97;
-}
-
-.fairy {
-	background-color: #fcd1df;
-}
-
-.poison {
-	background-color: #daacda;
-}
-
-.bug {
-	background-color: #e6ebb3;
-}
-
-.dragon {
-	background-color: #b99aff;
-}
-
-.psychic {
-	background-color: #ff9bb9;
-}
-
-.flying {
-	background-color: #c2b3f0;
-}
-
-.fighting {
-	background-color: #f7a39f;
-}
-
-.normal {
-	background-color: #d8d8cb;
-}
-
-.ghost {
-	background-color: #bb9ee7;
-}
-
-.card:hover {
-	animation: bounce 0.5s linear;
-}
-
 .card-title {
 	text-transform: capitalize;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	font-size: 25px;
 	font-weight: normal;
 	position: relative;
